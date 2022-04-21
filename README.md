@@ -126,8 +126,40 @@ I belive the *stn* and *date* are quite clear, but the IF seems a bit confusing.
   
   In the second if, notice that wdsp="999.9" and this is because this was saved in the data sheet as a string (a word, not a number). When the condition is not met, we don't want to keep using the value as a string, so when it is not NULL we CAST the value of wdsp AS Float64. What Float64 does is convert that string into a number with decimals. Say wdsp="49.3", with this CAST function it will become 49.3 in the column now assigned AS wind_speed.
 
+### 5.2 Formatting and adjusting data
+
+  **Convert and format data**
+
+*From one type to another*
+
+Sometimes, you need to convert data when you're working with spreadsheets. That might mean changing numbers into dates, strings, percentages, or even currency.
+
+This can be done from the menu, like by selecting a column that has costs and clicking the dollar sign button to add a $ at the beginning of each number. We can also use the function CONVERT. Changing the values in column B2 from Farenheit to Celsius can be achieved by writing in a cell =CONVERT(B2,"F","C"). 
+
+  > :bulb: Protip! Copy and paste the columns of calculated values so they no longer depend of a formula (to avoid mistakes). Simply click the column header to select all values, click copy and when pasting in another column, select "Paste Special > Paste values only"
     
-### 5.2 Formatting and adjusting your data. 
+*Converting data in spreadsheets*
+
+**String to date**
+
+Text to date in cell A1 in Excel: =DATEVALUE(A1)= serial number.  Serial number to date: Number Format box > date
+Google Sheets: Change date format: click Format > Number > Date
+
+**String to numbers**
+
+Convert text to number in Excel: There are many ways but one first approach is to click the warning sign and select Convert to Number.
+Convert text to numbers in Google Sheets: Also several ways but first approach can be by writing: =VALUE(A1)
+
+**Combining columns**
+Convert text from two or more cells: =A2&" "&B2 or =CONCAT(A2, " Family").
+Split or combine cells in Google Sheets: To split use "Data > Split text to columns" or =SPLIT(A2," "). To combine =CONCATENATE(A2," ",B2," ",C2)
+
+**Number to percentage**
+
+Format numbers as percentages: This can be done in the menu but the cells must be expressed in decimals before applying the percentage (10 = 0.1 = 10%)
+TO_PERCENT: TO_PERCENT(value) for example TO_PERCENT(1) = 100%, TO_PERCENT(0.256) = 25.6%
+
+
 ### 5.3 Aggregating data for analysis.  
 ### 5.4 Performing data calculations. 
 
