@@ -140,25 +140,32 @@ This can be done from the menu, like by selecting a column that has costs and cl
     
 *Converting data in spreadsheets*
 
-**String to date**
+String to date
 
 Text to date in cell A1 in Excel: =DATEVALUE(A1)= serial number.  Serial number to date: Number Format box > date
 Google Sheets: Change date format: click Format > Number > Date
 
-**String to numbers**
+String to numbers
 
 Convert text to number in Excel: There are many ways but one first approach is to click the warning sign and select Convert to Number.
 Convert text to numbers in Google Sheets: Also several ways but first approach can be by writing: =VALUE(A1)
 
-**Combining columns**
+Combining columns
+
 Convert text from two or more cells: =A2&" "&B2 or =CONCAT(A2, " Family").
 Split or combine cells in Google Sheets: To split use "Data > Split text to columns" or =SPLIT(A2," "). To combine =CONCATENATE(A2," ",B2," ",C2)
 
-**Number to percentage**
+Number to percentage
 
 Format numbers as percentages: This can be done in the menu but the cells must be expressed in decimals before applying the percentage (10 = 0.1 = 10%)
 TO_PERCENT: TO_PERCENT(value) for example TO_PERCENT(1) = 100%, TO_PERCENT(0.256) = 25.6%
 
+  *Data validation*
+  
+  Uses can be: 
+  1. Adding drop-down lists with predertermined options
+  2. Creating custom checkboxes 
+  3. Protecting structured data and formulas
 
 ### 5.3 Aggregating data for analysis.  
 ### 5.4 Performing data calculations. 
