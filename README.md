@@ -97,6 +97,36 @@ And this will give us the list of films from newest to oldest. If we want the re
     AND Revenue > 300000000
     ORDER BY Release_Date DESC
     
+  The course has a Hands-On Activity: Analyze weather data in BigQuery. Now I feel they took a bit of a leap here as there are some steps in the exercise that are not clear. The exercise says as follows
+  
+  *"The meteorologists who you’re working with have asked you to get the temperature, wind speed, and precipitation for stations La Guardia and JFK, for every day in 2020, in descending order by date, and ascending order by Station ID. Use the following query to request this information:*
+  
+  Now I wont put the whole exercise, just the first part as this is where stuff got confusing for me:
+  
+      SELECT
+          stn,
+          date,
+           -- Use the IF function to replace 9999.9 values, which the dataset description explains 
+           is the default value when temperature is missing, with NULLs instead.
+             IF(
+             temp=9999.9,         
+             NULL,
+             temp) AS temperature,
+          -- Use the IF function to replace 999.9 values, which the dataset description explains 
+          is the default value when wind speed is missing, with NULLs instead.
+             IF(
+             wdsp="999.9",
+             NULL,
+             CAST(wdsp AS Float64)) AS wind_speed,
+             ...
+
+I belive the *stn* and *date* are quite clear, but the IF seems a bit confusing. Sure the is a bit of an explanation there but its still was unclear to me. Here is what I found out.
+
+  IF(condition, what you assined, keep the same if condition is not met), so in this case, since 9999.9 is what the data set shows when a the value is missing, then the condition is that when temp=9999.9 we assign it a value named NULL, but if it does meet this condition, then it shows the value. After all this, we then named this column AS temperature. 
+  
+  In the second if, notice that wdsp="999.9" and this is because this was saved in the data sheet as a string (a word, not a number). When the condition is not met, we don't want to keep using the value as a string, so when it is not NULL we CAST the value of wdsp AS Float64. What Float64 does is convert that string into a number with decimals. Say wdsp="49.3", with this CAST function it will become 49.3 in the column now assigned AS wind_speed.
+
+    
 ### 5.2 Formatting and adjusting your data. 
 ### 5.3 Aggregating data for analysis.  
 ### 5.4 Performing data calculations. 
