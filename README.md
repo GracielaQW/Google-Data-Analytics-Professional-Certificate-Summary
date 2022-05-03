@@ -162,10 +162,14 @@ TO_PERCENT: TO_PERCENT(value) for example TO_PERCENT(1) = 100%, TO_PERCENT(0.256
 
   *Data validation*
   
-  Uses can be: 
-  1. Adding drop-down lists with predertermined options
-  2. Creating custom checkboxes 
-  3. Protecting structured data and formulas
+  It allows you to control what can and can't be entered in your worksheet. Uses can be: 
+  1. Adding drop-down lists with predertermined options. Let's say our team has a spreadsheet that tracks everyone's progress. We can make a drop-down    menu with multiple options, like "Not Yet Started," "In Progress," and "Ready." Select the column, click "Data>Data validation." In the pop-up menuselect the "list of items" and write 'Not Yet Started, In Progress,Ready'
+  2. Creating custom checkboxes. Same as before but now select "Checkbox." Write 'Approved' for "Checked" and 'Not Approved' for "Unchecked"
+  3. Protecting structured data and formulas. There is option to reject invalid inputs by selecting "Reject Input" in the validation menu.
+
+  *Conditional formating*
+ 
+ Say we want to color code ste Status column from the previus example. Click "Format>Conditional Format", select cells to which the rule will apply. Choose "Format Cells if > Text is exactly" from the rules. For our first rule, let's write "Not Yet Started" and choose a color:red. Now all cells that have "Not Yet Started" selected from the drop-down menu will be red. Repeat for other status with other colors such as yellow and green. 
 
 ### 5.3 Aggregating data for analysis.  
 ### 5.4 Performing data calculations. 
