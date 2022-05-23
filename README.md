@@ -189,6 +189,25 @@ TO_PERCENT: TO_PERCENT(value) for example TO_PERCENT(1) = 100%, TO_PERCENT(0.256
      
    Questions I have from this bit. Why if I make any changes to the GROUP BY section, it doesn't work? Can I ORDER BY a term I just defined previously in the SELECT  section? Most importantly, why is my FROM defined as `...new_york...' and not`and not `...new_york_citybike`as it appears in the bigquery-public-data table?
 
+  *Strings in Spreadsheets*
+  
+ Say we have a column with the format "2020-10-31 03:03:03" and we would like to separate the date from the time. To do this, first we calculate the lengthe of the string by writing:
+ 
+  =LEN(A2) -> 19
+  
+To get the position where the date begins which can be done by first finding the space (" ") between the date and the time:
+
+  =FIND(" ", A2) -> 11
+  
+Therefore, the date begins at posicion 12. To obtain just the time in these cells, we can write:
+
+  =RIGHT(A2,8)  -> 03:03:03
+  
+which will give us the 8 characters starting from the rights. To get the date, we can request the 11 characters starting from the left:
+
+  =LEFT(A2, 11) -> 2020-10-31
+
+
 
 
 
