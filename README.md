@@ -170,6 +170,28 @@ TO_PERCENT: TO_PERCENT(value) for example TO_PERCENT(1) = 100%, TO_PERCENT(0.256
   *Conditional formating*
  
  Say we want to color code ste Status column from the previus example. Click "Format>Conditional Format", select cells to which the rule will apply. Choose "Format Cells if > Text is exactly" from the rules. For our first rule, let's write "Not Yet Started" and choose a color:red. Now all cells that have "Not Yet Started" selected from the drop-down menu will be red. Repeat for other status with other colors such as yellow and green. 
+ 
+ *Merging and multiple sources*
+ 
+    SELECT
+     usertype,
+     CONCAT(start_station_name, "to", end_station_name) AS route,
+     COUNT(*) AS num_trips,
+     ROUND(AVG(cast(tripduration AS int64)/60),2)
+    FROM
+    `bigquery-public-data.new_york.citibike_trips`
+    GROUP BY
+     start_station_name, end_station_name, usertype
+    ORDER BY
+     num_trips DESC
+    LIMIT
+     10
+     
+   Questions I have from this bit. Why if I make any changes to the GROUP BY section, it doesn't work? Can I ORDER BY a term I just defined previously in the SELECT  section? Most importantly, why is my FROM defined as `...new_york...' and not`and not `...new_york_citybike`as it appears in the bigquery-public-data table?
+
+
+
+
 
 ### 5.3 Aggregating data for analysis.  
 ### 5.4 Performing data calculations. 
