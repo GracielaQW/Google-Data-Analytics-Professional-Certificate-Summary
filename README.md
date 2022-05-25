@@ -225,7 +225,31 @@ which will give us the 8 characters starting from the rights. To get the date, w
        SELECT ‘Google’ + ‘.com’    -->   Google.com
 
 
-### 5.3 Aggregating data for analysis.  
+### 5.3 Aggregating data for analysis. 
+
+The process of gathering data from multiple sources in order to combine it into a single summarized collection. 
+
+  *Vlookup*
+  
+  VLOOKUP stands for vertical lookup. Basically, it's a function that searches for a certain value in a column to return a corresponding piece of information
+  
+   VALUE is a function that converts a text string that represents a number to a numerical value. 
+   
+    =VALUE(A2) = 123
+    
+ Example:
+ 
+    VLOOKUP(103, A2:B26, 2, FALSE)
+    
+ In this example, we are looking for the value of 103 in column B (but in VLOOKUP we need to refer to the column in numbers, so B=2) along cells A2:B26. To get an exact match to 103, we write FALSE (TRUE would give us values near 103).
+ 
+ We can use VLOOKUP to look at spreadsheets than the one we are working in:
+ 
+    VLOOKUP(A2, 'Employee Rates'!$A2:B5, 2, False) --> $25
+ 
+ An absolute reference is a reference that is locked so that rows and columns won't change when copied. You can fix this issue by wrapping the table array in dollar signs.
+  
+  
 ### 5.4 Performing data calculations. 
 
 
